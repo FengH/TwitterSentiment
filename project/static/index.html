@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="cse6242Project">
+    <meta name="author" content="Group14">
+
+    <title>Twitter Sentiment Analysis</title>
+
+    <link rel="icon" href="img/t.png">
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/animate.min.css" type="text/css">
+    <link rel="stylesheet" href="css/creative.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="css/d3.css">
+
+</head>
+
+<body id="page-top">
+
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Twitter Sentiment Analysis</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#search">Search</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#result">Result</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#map">Map</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <header>
+        <section id="about">
+            <div class="header-content">
+                <div class="header-content-inner">
+                    <h2>Do you want to know state's feeling?</h2>
+                    <hr>
+                    <p>Here, we can help you find out how people feel about the keyword you type in 50 states of US</p>
+                    <a href="#search" class="btn btn-primary btn-xl page-scroll">I am interested</a>
+                </div>
+            </div>
+        </section>
+    </header>
+
+    <section class="bg-primary" id="search">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">That's try something</h2>
+                    <hr class="light">
+                    <p class="text-faded">Type in any key word you like</p>
+                    <form class="form-vertical" role="form">
+                        <div class="form-group">
+                            <div class="col-sm-6 col-sm-offset-3">
+                                <input type="text" class="form-control" id="keyword" placeholder="Enter keywords">
+                            </div>
+                        </div>
+                        <div class="form-group"> 
+                            <div style="height:60px"></div>
+                            <div class="col-sm-offset-4 col-sm-4">
+                                <button type="submit" class="btn btn-default" id="start">
+                                    <a href="#result" class="page-scroll">
+                                        <i class = "glyphicon glyphicon-play"></i> 
+                                        Get Started
+                                    </a>
+                                </button>
+                            </div>
+                            <div style="height:40px"></div>
+                            <div class="col-sm-offset-4 col-sm-4">
+                                <button type="submit" class="btn btn-default" id="end">
+                                        <i class = "glyphicon glyphicon-stop"></i> 
+                                        End Updating
+                                </button>
+                            </div>
+                        </div>
+                    </form>             
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="result">
+        <div class="container">
+        <div>
+            <h4>Keyword: </h4>
+            <h3 id="showkey"></h3>
+        </div>
+        <div id="highchart" class="container" style="height: 800px"></div>
+        </div>
+    </section>
+
+    <section class="no-padding" id="map" style="background-color: darkgrey"> 
+        <div class="container-fluid">
+        <h4 style="text-align: center;">Twitter Sentiment Distribution on US map</h4>
+            <div align = "center">
+                <div id="tooltip"></div>
+                <svg width = "960" height="600" id="statesvg"></svg>
+            </div>
+    </section>
+
+    <aside class="bg-dark">
+        <div class="container text-center">
+            <div class="call-to-action">
+                <h2>Free Download Our Code</h2>
+                <a href="http://www.github.com" target="_blank" class="btn btn-default btn-xl wow tada">Download Now!</a>
+            </div>
+        </div>
+    </aside>
+
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">Let's Get In Touch!</h2>
+                    <hr class="primary">
+                    <p>Does our project mean something to you? That's great! Send us an email about any questions for our project and code and we will get back to you as soon as possible!
+                </div>
+                <div class="col-lg-4 col-lg-offset-0 text-center">
+                    <p>Ning Wang</p>
+                    <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>
+                    <p><a href="mailto:ningwang@gatech.edu">ningwang@gatech.edu</a></p>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <p>Shiyu Xie</p>
+                    <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>
+                    <p><a href="mailto:royyu92@gatech.edu">royyu92@gatech.edu</a></p>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <p>Feng Han</p>
+                    <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>
+                    <p><a href="mailto:fenghan@gatech.edu">fenghan@gatech.edu</a></p>
+                </div>
+                <div class="col-lg-4 col-lg-offset-2 text-center">
+                    <p>Xing Feng</p>
+                    <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>
+                    <p><a href="mailto:fengxing1228@gatech.edu">fengxing1228@gatech.edu</a></p>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <p>Yue Liu</p>
+                    <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>
+                    <p><a href="mailto:uknowly@gatech.edu">uknowly@gatech.edu</a></p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/jquery.fittext.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/creative.js"></script>
+    <script src="js/d3.v3.min.js"></script>
+    <script src="js/uStates.js"></script>
+    <script src="js/highcharts.js"></script>
+    <script src="js/exporting.js"></script>
+
+</body>
+
+</html>
